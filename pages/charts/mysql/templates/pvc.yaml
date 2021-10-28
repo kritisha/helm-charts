@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc-cochin-test
+  namespace: cochin-test
+spec:
+  storageClassName: database-cochin-test
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
