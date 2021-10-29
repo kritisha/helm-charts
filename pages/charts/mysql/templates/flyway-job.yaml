@@ -6,7 +6,7 @@ metadata:
     app: {{ include "mysql.fullname" . }}
   annotations:
     "helm.sh/hook": post-install
-    #"helm.sh/hook-delete-policy": hook-succeeded
+    "helm.sh/hook-delete-policy": hook-succeeded
 spec:
   backoffLimit: 16
   template:
@@ -21,7 +21,8 @@ spec:
             - info
           env:
             - name: FLYWAY_URL
-              value: {{ include "mysql.getdbserviceurl" . }}
+              #value: {{ include "mysql.getdbserviceurl" . }}
+              {{ include "mysql.getdbservicename" . }}
             - name: FLYWAY_USER
               value: {{ .Values.job.env.FLYWAY_USER }}
             - name: FLYWAY_PASSWORD
