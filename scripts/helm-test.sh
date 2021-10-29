@@ -22,6 +22,7 @@ echo '---------------------Started testing--------------'
 sleep 60s
 kubectl get po -n "$NAMESPACE" --show-labels
 kubectl get svc -n "$NAMESPACE" -o wide
+kubectl get all --show-labels
 helm test "$RELEASE_NAME" --logs
 echo '---------------------Completed testing------------'
 
