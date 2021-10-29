@@ -22,7 +22,7 @@ spec:
           env:
             - name: FLYWAY_URL
               #value: {{ include "mysql.getdbserviceurl" . }}
-              {{ include "mysql.getdbservicename" . }}
+              value: {{ include "mysql.getdbservicename" . }}
             - name: FLYWAY_USER
               value: {{ .Values.job.env.FLYWAY_USER }}
             - name: FLYWAY_PASSWORD
